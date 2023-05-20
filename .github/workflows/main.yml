@@ -20,11 +20,6 @@ jobs:
           git config --global user.email "iammadhura26@gmail.com"
           git config --global user.name "madhura"
 
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-
       - name: Install AWS CDK
         run: npm install -g aws-cdk
 
