@@ -30,6 +30,8 @@ jobs:
         
       - name: npm install jest --save-dev
         run: npm install jest --save-dev
+      - name: 2.79.1
+        run: npm install aws-cdk@2.79.1
         
       - name: Deploy CDK stack
         run: cdk deploy
