@@ -7,7 +7,7 @@ describe('testing main',()=>{
     const consoleSpy=jest.spyOn(global.console,'log');
     test('main function',async()=>{
         const result =await main()
-        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('after s3'))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Entering Lambda!'))
         // expect(result).toBe('something')
     })
 })
