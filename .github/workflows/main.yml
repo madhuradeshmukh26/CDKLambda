@@ -25,11 +25,13 @@ jobs:
 
       - name: Build CDK app
         run: npm run build
+      - name: 2.1381.0
+        run: npm install aws-sdk@2.1381.0
         
       - name: npm install jest --save-dev
         run: npm install jest --save-dev
-      - name: Run tests
-        run: npm run test
-
+        
       - name: Deploy CDK stack
         run: cdk deploy
+      - name: Run tests
+        run: npm run test
