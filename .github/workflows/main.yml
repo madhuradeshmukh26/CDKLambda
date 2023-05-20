@@ -14,16 +14,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm run build
         
-      - name: aws-cdk/core
-        run: npm install aws-cdk/core
+      - name: Configure Git
+        run: |
+          git config --global user.email "iammadhura26@gmail.com"
+          git config --global user.name "madhura"
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
       - name: Install AWS CDK
         run: npm install -g aws-cdk
-        
-      - name: Deploy code
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build CDK app
+        run: npm run build
+
+      - name: Deploy CDK stack
         run: cdk deploy
 
       - name: Run tests
