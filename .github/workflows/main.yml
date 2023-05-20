@@ -33,9 +33,9 @@ jobs:
 
       - name: Build CDK app
         run: npm run build
+        
+      - name: Run tests
+        run: npm run test
 
       - name: Deploy CDK stack
         run: cdk deploy
-
-      - name: Run tests
-        run: npm run test
