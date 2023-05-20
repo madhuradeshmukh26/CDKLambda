@@ -26,6 +26,8 @@ jobs:
       - name: Build CDK app
         run: npm run build
         
+      - name: npm install jest --save-dev
+        run: npm install jest --save-dev
       - name: Run tests
         run: npm run test
 
