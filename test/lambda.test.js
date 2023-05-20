@@ -8,6 +8,7 @@ describe('testing main',()=>{
     test('main function',async()=>{
         const result =await main()
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Entering Lambda!'))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('after s3'))
         // expect(result).toBe('something')
     })
 })
