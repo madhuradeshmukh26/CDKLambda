@@ -21,7 +21,7 @@ jobs:
           git config --global user.name "madhura"
 
       - name: Install AWS CDK
-        run: npm install -g aws-cdk-lib
+        run: npm install -g aws-cdk-lib@2.79.1
 
       - name: Build CDK app
         run: npm run build
