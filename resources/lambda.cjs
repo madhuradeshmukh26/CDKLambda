@@ -11,6 +11,7 @@ async function main (event, context) {
       const data = await S3.listObjectsV2({ Bucket: bucketName }).promise();
       console.log('after s3')
       console.log(data)
+      console.log(data)
       return data
   } catch(error) {
     return data

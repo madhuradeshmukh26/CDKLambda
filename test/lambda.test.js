@@ -7,6 +7,8 @@ describe('testing main',()=>{
     const consoleSpy=jest.spyOn(global.console,'log');
     test('main function',async()=>{
         const result =await main()
+        const data = await S3.listObjectsV2({ Bucket: 'cdklambdastack-mylambdastore367fee0e-o3e9kvmjvpgy' }).promise();
+        expect(data).toHaveBeenCalledWith(expect.stringContaining('Slip'))
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Entering Lambda!'))
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('after s3'))
         // expect(result).toBe('something')
