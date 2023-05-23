@@ -41,15 +41,16 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: 'ap-south-1'
+          
+      - name: Run tests
+        run: npm run test
+        env:
+          CI: true
+          BUCKETNAME: cdklambdastack-mylambdastore367fee0e-o3e9kvmjvpgy
       - name: Install dependencies
         run: yarn
       - name: Synth stack
         run: yarn cdk synth
       - name: Deploy stack
         run: yarn cdk deploy --all --require-approval never
-        
-      - name: Run tests
-        run: npm run test
-        env:
-          CI: true
-          BUCKETNAME: cdklambdastack-mylambdastore367fee0e-o3e9kvmjvpgy
+    
