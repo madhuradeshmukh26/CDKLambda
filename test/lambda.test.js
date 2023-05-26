@@ -1,19 +1,18 @@
 // import {main} from '../resources/lambda.cjs';
-const main=require('../resources/lambda.cjs')
+const main=require('../resources/lambda.mjs')
 const AWS = require('aws-sdk');
 const S3 = new AWS.S3();
 
-const findConntract= require('../resources/lambda.cjs')
+const findConntract= require('../resources/lambda.mjs')
 const bucketNameis=process.env.BUCKETNAME
 console.log(bucketNameis)
-
 
 describe('testing main',()=>{
     test('main function',async()=>{
         const consoleSpy=jest.spyOn(global.console,'log');
-        //const result=await main('cdklambdastack-mylambdastore367fee0e-o3e9kvmjvpgy')
+        const result=await main('cdklambdastack-mylambdastore367fee0e-o3e9kvmjvpgy')
 
-        const result = await main(bucketNameis)
+        //const result = await main(bucketNameis)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('resolved error'));
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Entering Lambda!'));
         expect(consoleSpy.mock.calls.some(args => args.join(' ').includes('something'))).toBe(true);

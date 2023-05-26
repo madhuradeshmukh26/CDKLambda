@@ -1,20 +1,16 @@
 const AWS = require('aws-sdk');
 const { findConfigFile } = require('typescript');
 const s3 = new AWS.S3();
+import * as cdk from 'aws-cdk-lib';
 
 //const bucketName = process.env.BUCKET;
-
-
 async function main (bucketName,event, context) {
-  // let connection= await postgree(this);
-  // let contrantracs = await findConntract(connection);
-
-
-
       console.log("Entering Lambda!")
+      const buckname= cdk.Fn.importValue('bucket')
+      console.log('Bucket name:', buckname.bucketName);
       const data = await new Promise((resolve, reject) => {s3.listObjectsV2({ Bucket: bucketName },
         function(err,data){
-          if(err) {console.log(err,err.stack);
+          if(err) {console.log('error occured',err,err.stack);
           reject(err)}
           else{
             console.log("something",data.Contents);
