@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const { findConfigFile } = require('typescript');
 const s3 = new AWS.S3();
-import * as cdk from 'aws-cdk-lib';
+const cdk = require('aws-cdk-lib');
 
 //const bucketName = process.env.BUCKET;
 async function main (bucketName,event, context) {

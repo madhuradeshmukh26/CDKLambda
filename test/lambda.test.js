@@ -1,11 +1,32 @@
 // import {main} from '../resources/lambda.cjs';
 const main=require('../resources/lambda.mjs')
 const AWS = require('aws-sdk');
-const S3 = new AWS.S3();
+//const AWS = require('aws-sdk/clients/s3');
+const S3 = require('aws-cdk-lib/aws_s3')
+const miss= require('../resources/lambda.mjs')
+const cdk =require('aws-cdk-lib')
 
 const findConntract= require('../resources/lambda.mjs')
-const bucketNameis=process.env.BUCKETNAME
-console.log(bucketNameis)
+
+
+class somm {
+    bul;
+    bulname;
+    buckname
+
+    constructor(scope,id){
+        this.bul="hello"
+
+        this.buckname= cdk.Fn.importValue('sourcebucketappflow')
+        console.log(this.buckname)
+        const bu=S3.fromBucketArn(scope, "bucketexport", this.buckname)
+    }
+}
+
+let res= new somm();
+console.log(`${res.bul}`)
+console.log(`${res.buckname}`)
+
 
 describe('testing main',()=>{
     test('main function',async()=>{
