@@ -1,10 +1,6 @@
 // import {main} from '../resources/lambda.cjs';
 const main=require('../resources/lambda.mjs')
 const AWS = require('aws-sdk');
-//const AWS = require('aws-sdk/clients/s3');
-// const s3 = require('aws-cdk-lib/aws_s3')
-// const miss= require('../resources/lambda.mjs')
-
 
 const findConntract= require('../resources/lambda.mjs')
 
